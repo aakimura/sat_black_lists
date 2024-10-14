@@ -87,20 +87,10 @@ if __name__ == '__main__':
             'NOMBRE, DENOMINACIÓN O RAZÓN SOCIAL': 'RAZÓN SOCIAL'
         })
 
-        # Show head and columns
-        print('\nFile:\n\n', file)
-        print('\nColumns:\n\n', df.columns)
-        print('\nExample:\n\n', df.iloc[0])
-
-        proceed = input('Proceed processing? (Y/n) ')
-
-        if proceed.lower() == 'y':
-            print("Appending to database..")
-            source = FILE_TRANSLATE[file]
-            df['source'] = source
-            db = pd.concat([db, df])
-        else:
-            print("OK. Next file...")
+        print("Appending to database..")
+        source = FILE_TRANSLATE[file]
+        df['source'] = source
+        db = pd.concat([db, df])
 
     output_path = os.path.join(PROCESSED_PATH, f'{file}.csv')
     db.to_csv(output_path)
