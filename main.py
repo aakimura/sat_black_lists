@@ -92,5 +92,5 @@ if __name__ == '__main__':
         df['source'] = source
         db = pd.concat([db, df])
 
-    output_path = os.path.join(PROCESSED_PATH, f'{file}.csv')
+    output_path = os.path.join(PROCESSED_PATH, f'{folder}.csv')
     db.to_csv(output_path)
